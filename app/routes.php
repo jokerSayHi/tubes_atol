@@ -20,3 +20,18 @@ Route::get('/login', function()
 {
   return View::make('login');
 });
+
+Route::get('/dashboard', function ()
+{
+  return View::make('admin.dashboard');
+});
+
+Route::get('/form', function ()
+{
+  return View::make('admin.form');
+});
+
+Route::get('/table', function ()
+{
+  return View::make('admin.table');
+});
