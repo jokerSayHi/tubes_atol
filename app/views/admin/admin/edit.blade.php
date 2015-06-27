@@ -5,46 +5,46 @@
 </head>
 <body>
 
-   <nav>
-    <div class="nav-wrapper green light-1">
-      <a href="#" class="brand-logo center">Situs Administrator</a>
-    </div>
-  </nav>
+  @include('includes.menuadmin')
   <div id="slide-out" class="side-nav fixed">
     @include('includes.menuadmin')
   </div>
+
+  {{-- CONTENT GOES HERE --}}
   <div class="container">
     <div class="row">
       <div class="card-panel card-table col offset-s2 s11">
-        <span class="card-title grey-text lighten-1" style="padding-left:0">Table Mama Lorem</span>
+        <span class="card-title grey-text lighten-1" style="padding-left:0">Edit Admin ID: 123</span>
         <div class="row">
           <form class="col s12">
             <div class="row">
-              <div class="input-field col s6">
-                <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-                <label for="first_name">First Name</label>
-              </div>
-              <div class="input-field col s6">
-                <input id="last_name" type="text" class="validate">
-                <label for="last_name">Last Name</label>
+              <div class="input-field col s12">
+                <input id="nama" name="nama" required type="text" class="validate">
+                <label for="nama">Nama</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input disabled value="I am not editable" id="disabled" type="text" class="validate">
-                <label for="disabled">Disabled</label>
+                <input id="username" name="username" required type="text" class="validate">
+                <label for="username">Username</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input id="password" type="password" class="validate">
+                <input id="password" name="password" required type="password" class="validate">
                 <label for="password">Password</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input id="email" type="email" class="validate">
+                <input id="email" name="email" required type="email" class="validate">
                 <label for="email">Email</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="telp" name="telp" required type="Number" class="validate">
+                <label for="telp">No Telepon</label>
               </div>
             </div>
 

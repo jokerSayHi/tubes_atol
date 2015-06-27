@@ -86,11 +86,13 @@
 }
 
 .dashboard-menu{
+  width: 100%;
   padding: 20px 10px !important;
   border-bottom: 1px solid #E2E2E2;
 }
 
 .dashboard-menu-nd{
+  width: 100%;
   border-bottom: 1px solid #E2E2E2;
 }
 
