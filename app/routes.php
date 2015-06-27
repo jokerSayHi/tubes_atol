@@ -23,7 +23,7 @@ Route::get('/login', function()
 
 Route::get('/dashboard', function ()
 {
-  return View::make('admin.dashboard');
+  return View::make('admin.admin.table');
 });
 
 Route::get('/form', function ()
