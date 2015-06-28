@@ -75,6 +75,19 @@
   top: 50px;;;
 }
 
+.panel-signup{
+  padding: 0;
+}
+
+.file-field input.file-path{
+  margin-left: 177px;
+  width: calc(100% - 177px);
+}
+
+#signup{
+  background-color: #9CFF9F;
+}
+
 .card-title{
     padding: 50px 20px 5px 20px;
     color: #fff;
@@ -86,9 +99,14 @@
 }
 
 .dashboard-menu{
+  width: 100%;
   padding: 20px 10px !important;
   border-bottom: 1px solid #E2E2E2;
+}
 
+.dashboard-menu-nd{
+  width: 100%;
+  border-bottom: 1px solid #E2E2E2;
 }
 
 .btn-table, .btn-dashboard{
