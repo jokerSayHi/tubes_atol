@@ -5,17 +5,17 @@ use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
-class User extends Eloquent implements UserInterface, RemindableInterface {
+class Admin extends Eloquent implements UserInterface, RemindableInterface {
 
 	use UserTrait, RemindableTrait;
 
-	protected $table = 'users';
+	protected $table = 'admin';
 
 	public $timestamps = false;
 
-	protected $fillable = array('nik', 'nama', 'email', 'password', 'alamat', 'tempat_lahir', 'tgl_lahir', 'no_telp', 'foto_ktp', 'status_aktif', 'nip');
+	protected $fillable = array('nip', 'nama', 'user', 'password', 'email', 'no_telp');
 
-	protected $primaryKey = 'nik';
+	protected $primaryKey = 'nip';
 
 	protected $hidden = array('password');
 

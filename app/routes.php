@@ -10,13 +10,26 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+if (Session::has('isAdmin')) {
+	Config::set('auth.model', 'Admin');
+} elseif (Session::has('isUser')) {
+	Config::set('auth.model', 'User');
+}
 
 Route::get('/', function()
 {
 	return View::make('index');
 });
 
-Route::get('/login', function()
+Route::get('/test', function()
 {
-  return View::make('login');
+	return View::make('test');
 });
+
+Route::get('login', array('uses'	=>	'LoginUserController@showLogin'));
+Route::post('login', array('uses'	=>	'LoginUserController@doLogin'));
+Route::get('logout', array('uses'	=>	'LoginUserController@doLogout'));
+
+Route::get('admin', array('uses'	=>	'LoginAdminController@showLogin'));
+Route::post('admin', array('uses'	=>	'LoginAdminController@doLogin'));
+Route::get('admin/logout', array('uses'	=>	'LoginAdminController@doLogout'));

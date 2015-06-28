@@ -14,7 +14,7 @@
           <div style="padding:20px;">
 
             <div class="row">
-              <form class="col s12" method="post" action="login">
+              <form class="col s12" method="post" action="admin">
                 <div class="row" style="margin-bottom:10px">
                   <div class="input-field col s12">
                     <i class="mdi-action-account-circle prefix grey-text lighten-2"></i>
