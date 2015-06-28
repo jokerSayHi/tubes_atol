@@ -14,7 +14,7 @@
   <div class="container">
     <div class="row">
       <div class="card-panel card-table col offset-s2 s11">
-        <span class="card-title grey-text lighten-1" style="padding-left:0">Edit User NIK: [123]</span>
+        <span class="card-title grey-text lighten-1" style="padding-left:0">Edit Usaha: [123]</span>
         <div class="row">
           <form class="col s12">
             <div class="row">
