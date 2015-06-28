@@ -56,7 +56,7 @@
                   Account
                 </h2>
                 <a class="waves-effect green darken-1 white-text waves-light btn btn-flat btn-login">Login</a>
-                <p class="signup grey-text text-lighten-1">Tidak punya akun? <a href="#signup" class="green-text text-lighten-1 waves-effect waves-teal btn-flat modal-trigger">&nbsp;Sign Up!</a></p>
+                <p class="signup grey-text text-lighten-1">Tidak punya akun? <a href="/signup" class="green-text text-lighten-1 waves-effect waves-teal btn-flat">&nbsp;Sign Up!</a></p>
               </div>
             </div>
           </div>
