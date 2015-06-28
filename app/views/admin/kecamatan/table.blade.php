@@ -5,7 +5,7 @@
 </head>
 <body>
 
-  @include('includes.menuadmin')
+  @include('includes.navbar')
   <div id="slide-out" class="side-nav fixed">
     @include('includes.menuadmin')
   </div>
@@ -19,24 +19,18 @@
         <table class="hoverable">
           <thead>
             <tr>
-              <th data-field="nip">NIP</th>
-              <th data-field="nama">Nama</th>
-              <th data-field="username">Username</th>
-              <th data-field="email">Email</th>
-              <th data-field="telepon">Telepon</th>
+              <th data-field="nip">ID</th>
+              <th data-field="nama">Nama Kecamatan</th>
               <th data-field="action">Action</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>12345</td>
-              <td>Kampret</td>
-              <td>kampretos</td>
-              <td>kampret@mail.com</td>
-              <td>08579171912</td>
+              <td>Hells</td>
               <td>
-                 <a class="btn-floating waves-effect waves-light red"><i class="mdi-action-delete"></i></a> &nbsp;
                  <a class="btn-floating waves-effect waves-light yellow"><i class="mdi-content-create"></i></a>
+                 <a class="btn-floating waves-effect waves-light red"><i class="mdi-action-delete"></i></a> &nbsp;
               </td>
             </tr>
           </tbody>

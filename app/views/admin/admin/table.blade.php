@@ -35,8 +35,8 @@
               <td>kampret@mail.com</td>
               <td>08579171912</td>
               <td>
-                 <a class="btn-floating waves-effect waves-light red"><i class="mdi-action-delete"></i></a> &nbsp;
                  <a class="btn-floating waves-effect waves-light yellow"><i class="mdi-content-create"></i></a>
+                 <a class="btn-floating waves-effect waves-light red"><i class="mdi-action-delete"></i></a> &nbsp;
               </td>
             </tr>
           </tbody>

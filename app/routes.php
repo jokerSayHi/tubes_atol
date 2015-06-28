@@ -42,7 +42,16 @@ Route::get('/signup', function()
 
 Route::get('/dashboard', function ()
 {
-  return View::make('admin.admin.form');
+  return View::make('admin.usaha.form');
+});
+Route::get('/table', function ()
+{
+  return View::make('admin.usaha.table');
+});
+
+Route::get('/edit', function ()
+{
+  return View::make('admin.usaha.edit');
 });
 
 Route::get('/form', function ()
@@ -55,13 +64,4 @@ Route::get('/admin', function ()
   return View::make('loginadmin');
 });
 
-Route::get('/table', function ()
-{
-  return View::make('admin.admin.table');
-});
-
-Route::get('/edit', function ()
-{
-  return View::make('admin.admin.edit');
-});
 

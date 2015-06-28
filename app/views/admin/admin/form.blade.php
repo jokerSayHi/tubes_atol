@@ -17,12 +17,12 @@
         <span class="card-title grey-text lighten-1" style="padding-left:0">Tambah Admin</span>
         <div class="row">
           <form class="col s12">
-            <div class="row">
+            {{-- <div class="row">
               <div class="input-field col s12">
                 <input id="nip" name="nip" required type="text" class="validate">
                 <label for="nip">NIP</label>
               </div>
-            </div>
+            </div> --}}
             <div class="row">
               <div class="input-field col s12">
                 <input id="nama" name="nama" required type="text" class="validate">
