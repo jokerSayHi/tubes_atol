@@ -5,11 +5,7 @@
 </head>
 <body>
 
-  <nav>
-    <div class="nav-wrapper green light-1">
-      <a href="#" class="brand-logo center">Situs Administrator</a>
-    </div>
-  </nav>
+  @include('includes.navbar')
   <div id="slide-out" class="side-nav fixed">
     <ul>
       <li class="dashboard-menu"><a href="#!">Dashboard</a></li>

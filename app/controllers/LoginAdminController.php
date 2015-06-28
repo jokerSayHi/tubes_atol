@@ -5,9 +5,9 @@ class LoginAdminController extends BaseController {
 	public function showLogin()
 	{
 		if (Auth::check()) {
-			return Redirect::intended('/');
+			return View::make('admin.dashboard');
 		} else {
-			return View::make('admin.login'); 
+			return View::make('admin.login');
 		}
 	}
 
@@ -21,7 +21,7 @@ class LoginAdminController extends BaseController {
 		$validator = Validator::make(Input::all(), $rules);
 
 		if ($validator->fails()) {
-			return Redirect::to('login');
+			return View::make('admin.login');
 		} else {
 			$userdata = array(
 				'user'	=>	Input::get('user'),
@@ -34,9 +34,9 @@ class LoginAdminController extends BaseController {
 
 			if(Auth::attempt($userdata)) {
 				Session::put('isAdmin', true);
-				return Redirect::intended('/');
+				return View::make('admin.dashboard');
 			} else {
-				return Redirect::intended('admin');
+				return View::make('admin.login');
 			}
 		}
 	}
@@ -44,7 +44,8 @@ class LoginAdminController extends BaseController {
 	public function doLogout()
 	{
 		Auth::logout();
-		return Redirect::intended('admin');
+		Session::flush();
+		return Redirect::intended('dashboard');
 	}
 
 }

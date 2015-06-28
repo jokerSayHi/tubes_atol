@@ -43,7 +43,11 @@ Route::filter('auth', function()
 		}
 		else
 		{
-			return Redirect::guest('login');
+			if (Session::has('isAdmin')) {
+				return Redirect::guest('dashboard');
+			} else {
+				return Redirect::guest('login');
+			}
 		}
 	}
 });

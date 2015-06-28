@@ -3,11 +3,7 @@
 class LoginUserController extends BaseController {
 
 	public function showLogin()
-	{
-		Config::set('auth.model', 'User');
-		$auth = Auth::createEloquentDriver();
-		Auth::setProvider($auth->getProvider());
-		
+	{		
 		if (Auth::check()) {
 			return Redirect::intended('/');
 		} else {
@@ -37,7 +33,6 @@ class LoginUserController extends BaseController {
 			Auth::setProvider($auth->getProvider());
 
 			if(Auth::attempt($userdata)) {
-				Session::put('isUser', true);
 				return Redirect::intended('/');
 			} else {
 				return Redirect::intended('admin');

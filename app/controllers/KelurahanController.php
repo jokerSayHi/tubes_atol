@@ -11,7 +11,7 @@ class KelurahanController extends BaseController {
 	{
 		$kel = Kelurahan::paginate(15);
 
-		return View::make('test')->with('kel', $kel);
+		return View::make('admin.kelurahan.table')->with('kel', $kel);
 	}
 
 
@@ -81,8 +81,10 @@ class KelurahanController extends BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
-	}
+		$kel = Kelurahan::find($id);
+		$kel->delete();
 
+		return View::make('test');
+	}
 
 }

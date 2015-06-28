@@ -13,36 +13,36 @@
 
 if (Session::has('isAdmin')) {
 	Config::set('auth.model', 'Admin');
-} elseif (Session::has('isUser')) {
+} else {
 	Config::set('auth.model', 'User');
 }
+
+// Login Admin Handler
+Route::get('dashboard', array('uses' => 'LoginAdminController@showLogin'));
+Route::post('dashboard', array('uses' => 'LoginAdminController@doLogin'));
+Route::get('dashboard/logout', array('uses' => 'LoginAdminController@doLogout'));
+
+// Login User Handler
+Route::get('login', array('uses' => 'LoginUserController@showLogin'));
+Route::post('login', array('uses' => 'LoginUserController@doLogin'));
+Route::get('logout', array('uses' => 'LoginUserController@doLogout'));
 
 Route::get('/', function()
 {
 	return View::make('index');
 });
 
-Route::get('/signup', function()
+Route::get('test', function()
 {
-  return View::make('signup');
+	return View::make('test');
 });
 
-Route::get('/dashboard', function()
+Route::get('user', array('before' => 'auth'), function()
 {
-  return View::make('admin.admin.form');
+	return View::make('test');
 });
 
-Route::get('/form', function()
+Route::group(array('prefix' => 'dashboard', 'before' => 'auth'), function()
 {
-  return View::make('admin.form');
-});
-
-Route::get('/table', function()
-{
-  return View::make('admin.admin.table');
-});
-
-Route::get('/edit', function()
-{
-  return View::make('admin.admin.edit');
+	Route::resource('kelurahan', 'KelurahanController');
 });
