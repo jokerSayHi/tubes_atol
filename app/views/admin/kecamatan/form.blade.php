@@ -23,6 +23,12 @@
                 <label for="kecamatan">Nama Kecamatan</label>
               </div>
             </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="kode_pos" name="kode_pos" required type="text" class="validate">
+                <label for="kode_pos">Kode Pos</label>
+              </div>
+            </div>
 
             <div class="row center-align">
               <div class="col s6">
