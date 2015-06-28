@@ -10,6 +10,7 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+
 if (Session::has('isAdmin')) {
 	Config::set('auth.model', 'Admin');
 } elseif (Session::has('isUser')) {
@@ -21,39 +22,27 @@ Route::get('/', function()
 	return View::make('index');
 });
 
-Route::resource('test', 'KelurahanController');
-
-Route::get('login', array('uses'	=>	'LoginUserController@showLogin'));
-Route::post('login', array('uses'	=>	'LoginUserController@doLogin'));
-Route::get('logout', array('uses'	=>	'LoginUserController@doLogout'));
-
-Route::get('admin', array('uses'	=>	'LoginAdminController@showLogin'));
-Route::post('admin', array('uses'	=>	'LoginAdminController@doLogin'));
-Route::get('admin/logout', array('uses'	=>	'LoginAdminController@doLogout'));
-
-
 Route::get('/signup', function()
 {
   return View::make('signup');
 });
 
-Route::get('/dashboard', function ()
+Route::get('/dashboard', function()
 {
   return View::make('admin.admin.form');
 });
 
-Route::get('/form', function ()
+Route::get('/form', function()
 {
   return View::make('admin.form');
 });
 
-Route::get('/table', function ()
+Route::get('/table', function()
 {
   return View::make('admin.admin.table');
 });
 
-Route::get('/edit', function ()
+Route::get('/edit', function()
 {
   return View::make('admin.admin.edit');
 });
-
