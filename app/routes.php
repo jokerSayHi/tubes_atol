@@ -42,16 +42,16 @@ Route::get('/signup', function()
 
 Route::get('/dashboard', function ()
 {
-  return View::make('admin.usaha.form');
+  return View::make('admin.kecamatan.form');
 });
 Route::get('/table', function ()
 {
-  return View::make('admin.usaha.table');
+  return View::make('admin.kecamatan.table');
 });
 
 Route::get('/edit', function ()
 {
-  return View::make('admin.usaha.edit');
+  return View::make('admin.kecamatan.edit');
 });
 
 Route::get('/form', function ()
