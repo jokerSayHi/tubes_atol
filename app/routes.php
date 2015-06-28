@@ -21,10 +21,7 @@ Route::get('/', function()
 	return View::make('index');
 });
 
-Route::get('/test', function()
-{
-	return View::make('test');
-});
+Route::resource('test', 'KelurahanController');
 
 Route::get('login', array('uses'	=>	'LoginUserController@showLogin'));
 Route::post('login', array('uses'	=>	'LoginUserController@doLogin'));

@@ -9,7 +9,9 @@ class KelurahanController extends BaseController {
 	 */
 	public function index()
 	{
-		//
+		$kel = Kelurahan::paginate(15);
+
+		return View::make('test')->with('kel', $kel);
 	}
 
 

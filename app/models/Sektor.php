@@ -7,4 +7,7 @@ class Sektor extends Eloquent {
 	public $timestamps = false;
 
 	protected $fillable = array('nama_sektor');
+
+	protected $primaryKey = 'id_sektor';
+	
 }

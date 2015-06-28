@@ -7,4 +7,7 @@ class Kelurahan extends Eloquent {
 	public $timestamps = false;
 
 	protected $fillable = array('nama_kelurahan', 'id_kecamatan');
+
+	protected $primaryKey = 'id_kelurahan';
+	
 }
