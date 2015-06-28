@@ -5,7 +5,7 @@
 </head>
 <body>
 
-  @include('includes.menuadmin')
+  @include('includes.navbar')
   <div id="slide-out" class="side-nav fixed">
     @include('includes.menuadmin')
   </div>

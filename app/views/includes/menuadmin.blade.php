@@ -78,8 +78,4 @@
       </li>
     </ul>
   </li>
-  <li class="dashboard-menu-nd waves-effect waves-green"><a href="#!">Cetak Laporan</a></li>
-  <li class="dashboard-menu-nd waves-effect waves-green"><a href="#!">Aktivasi User</a></li>
-  <li class="dashboard-menu-nd waves-effect waves-green"><a href="#!">Aktivasi Data Usaha</a></li>
-  <li class="dashboard-menu-nd waves-effect waves-green"><a href="#!">Logout</a></li>
 </ul>
