@@ -50,6 +50,11 @@ Route::get('/form', function ()
   return View::make('admin.form');
 });
 
+Route::get('/admin', function ()
+{
+  return View::make('loginadmin');
+});
+
 Route::get('/table', function ()
 {
   return View::make('admin.admin.table');
