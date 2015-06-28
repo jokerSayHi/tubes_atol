@@ -19,40 +19,49 @@
           <form class="col s12">
             <div class="row">
               <div class="input-field col s12">
-                <input id="nama" name="nama" required type="text" class="validate">
-                <label for="nama">Nama</label>
+                <input id="nama_usaha" name="nama_usaha" required type="text" class="validate">
+                <label for="nama_usaha">Nama Usaha</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input id="email" name="email" required type="email" class="validate">
-                <label for="email">Email</label>
+                <input id="produk_utama" name="produk_utama" required type="text" class="validate">
+                <label for="produk_utama">Produk Utama</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input id="alamat" name="alamat" required type="text" class="validate">
-                <label for="alamat">Alamat</label>
+                <input id="alamat_usaha" name="alamat_usaha" required type="text" class="validate">
+                <label for="alamat_usaha">Alamat Usaha</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input id="tmptlahir" name="tmptlahir" required type="text" class="validate">
-                <label for="tmptlahir">Tempat Lahir</label>
+                <input id="deskripsi" name="deskripsi" required type="text" class="validate">
+                <label for="deskripsi">Deskripsi</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input id="tgl_lahir" type="date" class="datepicker">
-                <label for="tgl_lahir">Tanggal Lahir</label>
+                <input id="tlp_usaha" type="text" nama="tlp_usaha" class="validate">
+                <label for="tlp_usaha">Telepon Usaha</label>
               </div>
             </div>
             <div class="row">
-              <div class="input-field col s12">
-                <input id="telp" name="telp" required type="text" class="validate">
-                <label for="telp">Nomor Telepon</label>
-              </div>
-            </div>
+              <p>Skala Usaha</p>
+              <p>
+                <input class="with-gap" name="skala" type="radio" id="skala1"  />
+                <label for="skala1">Mikro</label>
+              </p>
+              <p>
+                <input class="with-gap" name="skala" type="radio" id="skala2"  />
+                <label for="skala2">Kecil</label>
+              </p>
+              <p>
+                <input class="with-gap" name="skala" type="radio" id="skala3"  />
+                <label for="skala3">Menengah</label>
+              </p>
+            </div>        
             <div class="row">
               <p>Status Aktif</p>
               <p>
@@ -64,6 +73,28 @@
                 <label for="status2">Tidak Aktif</label>
               </p>
             </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <select>
+                  <option value="" disabled selected>Pilih Kelurahan</option>
+                  <option value="1">Option 1</option>
+                  <option value="2">Option 2</option>
+                  <option value="3">Option 3</option>
+                </select>
+                <label>Kelurahan</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <select>
+                  <option value="" disabled selected>Pilih Sektor</option>
+                  <option value="1">Option 1</option>
+                  <option value="2">Option 2</option>
+                  <option value="3">Option 3</option>
+                </select>
+                <label>Sektor</label>
+              </div>
+            </div>  
 
             <div class="row center-align">
               <div class="col s6">
@@ -83,9 +114,8 @@
   @include('includes.scripts')
 
   <script>
-   $('.datepicker').pickadate({
-    selectMonths: true, // Creates a dropdown to control month
-    selectYears: 15 // Creates a dropdown of 15 years to control year
+    $(document).ready(function() {
+    $('select').material_select();
   });
   </script>
 </body>
