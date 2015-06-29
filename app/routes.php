@@ -23,6 +23,11 @@ if (Session::get('userType') == 'admin') {
 $auth = Auth::createEloquentDriver();
 Auth::setProvider($auth->getProvider());
 
+Route::get('/', function()
+{
+	return View::make('index');
+});
+
 // Login Admin Handler
 Route::get('dashboard', array('uses' => 'LoginAdminController@showLogin'));
 Route::post('dashboard', array('uses' => 'LoginAdminController@doLogin'));
