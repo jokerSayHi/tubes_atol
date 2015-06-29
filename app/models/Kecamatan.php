@@ -7,4 +7,7 @@ class Kecamatan extends Eloquent {
 	public $timestamps = false;
 
 	protected $fillable = array('nama_kecamatan', 'kode_pos');
+
+	protected $primaryKey = 'id_kecamatan';
+	
 }

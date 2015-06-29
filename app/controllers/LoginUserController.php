@@ -3,11 +3,7 @@
 class LoginUserController extends BaseController {
 
 	public function showLogin()
-	{
-		Config::set('auth.model', 'User');
-		$auth = Auth::createEloquentDriver();
-		Auth::setProvider($auth->getProvider());
-		
+	{		
 		if (Auth::check()) {
 			return Redirect::intended('/');
 		} else {
@@ -18,8 +14,8 @@ class LoginUserController extends BaseController {
 	public function doLogin()
 	{
 		$rules = array(
-			'user'	=>	'required',
-			'password'	=>	'required|alphaNum|min:3'
+			'nik'	=>	'required',
+			'password'	=>	'required|min:3'
 		);
 
 		$validator = Validator::make(Input::all(), $rules);
@@ -27,8 +23,8 @@ class LoginUserController extends BaseController {
 		if ($validator->fails()) {
 			return Redirect::to('login');
 		} else {
-			$userdata = array(
-				'nik'	=>	Input::get('user'),
+			$credentials = array(
+				'nik'	=>	Input::get('nik'),
 				'password'	=>	Input::get('password')
 			);
 
@@ -36,11 +32,11 @@ class LoginUserController extends BaseController {
 			$auth = Auth::createEloquentDriver();
 			Auth::setProvider($auth->getProvider());
 
-			if(Auth::attempt($userdata)) {
-				Session::put('isUser', true);
+			if(Auth::attempt($credentials)) {
+				Session::put('userType', 'user');
 				return Redirect::intended('/');
 			} else {
-				return Redirect::intended('admin');
+				return Redirect::intended('login');
 			}
 		}
 	}

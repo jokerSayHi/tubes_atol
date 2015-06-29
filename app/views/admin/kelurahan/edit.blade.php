@@ -14,24 +14,37 @@
   <div class="container">
     <div class="row">
       <div class="card-panel card-table col offset-s2 s11">
-        <span class="card-title grey-text lighten-1" style="padding-left:0">Edit Kelurahan [Nama Kelurahan]</span>
+        <span class="card-title grey-text lighten-1" style="padding-left:0">Edit Kelurahan <?php echo $kel->nama_kelurahan; ?></span>
         <div class="row">
-          <form class="col s12">
+          <form class="col s12" method="post" action="/dashboard/kelurahan/<?php echo $kel->id_kelurahan; ?>">
+            <input name="_method" type="hidden" value="PUT">
             <div class="row">
               <div class="input-field col s12">
-                <input id="kelurahan" name="kelurahan" required type="text" class="validate">
+                <input id="id" name="id_kelurahan" disabled type="text" class="validate" value="<?php echo $kel->id_kelurahan; ?>">
+                <label for="id">ID Kelurahan</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="kelurahan" name="kelurahan" required type="text" class="validate" value="<?php echo $kel->nama_kelurahan; ?>">
                 <label for="kelurahan">Nama Kelurahan</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <select>
-                  <option value="" disabled selected>Pilih Kecamatan</option>
-                  <option value="1">Option 1</option>
-                  <option value="2">Option 2</option>
-                  <option value="3">Option 3</option>
+                <select name="id_kecamatan">
+                  <option value="">Pilih Kecamatan</option>
+                  <?php
+                  foreach ($kec as $key => $value) {
+                    if ($kel->id_kecamatan == $value->id_kecamatan) {
+                      echo "<option value=\"" . $value->id_kecamatan . "\" selected>" . $value->nama_kecamatan . "</option>";
+                    } else {
+                      echo "<option value=\"" . $value->id_kecamatan . "\">" . $value->nama_kecamatan . "</option>";
+                    }
+                  }
+                  ?>
                 </select>
-                <label>Kecamatan</label>
+                <label>Nama kecamatan</label>
               </div>
             </div>
 
@@ -57,6 +70,6 @@
     $('select').material_select();
   });
   </script>
-  
+
 </body>
 </html>

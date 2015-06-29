@@ -5,7 +5,7 @@
 </head>
 <body>
 
-  @include('includes.menuadmin')
+  @include('includes.navbar')
   <div id="slide-out" class="side-nav fixed">
     @include('includes.menuadmin')
   </div>
@@ -14,36 +14,31 @@
   <div class="container">
     <div class="row">
       <div class="card-panel card-table col offset-s2 s11">
-        <span class="card-title grey-text lighten-1" style="padding-left:0">Edit Admin ID: 123</span>
+        <span class="card-title grey-text lighten-1" style="padding-left:0">Edit Admin <?php echo $admin->nama; ?></span>
         <div class="row">
-          <form class="col s12">
+          <form class="col s12" method="post" action="/dashboard/admin/<?php echo $admin->nip; ?>">
+            <input name="_method" type="hidden" value="PUT">
             <div class="row">
               <div class="input-field col s12">
-                <input id="nama" name="nama" required type="text" class="validate">
+                <input id="nama" name="nama" required type="text" class="validate" value="<?php echo $admin->nama; ?>">
                 <label for="nama">Nama</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input id="username" name="username" required type="text" class="validate">
-                <label for="username">Username</label>
+                <input id="user" name="user" required type="text" class="validate" value="<?php echo $admin->user; ?>">
+                <label for="user">Username</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input id="password" name="password" required type="password" class="validate">
-                <label for="password">Password</label>
-              </div>
-            </div>
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="email" name="email" required type="email" class="validate">
+                <input id="email" name="email" required type="email" class="validate" value="<?php echo $admin->email; ?>">
                 <label for="email">Email</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input id="telp" name="telp" required type="Number" class="validate">
+                <input id="telp" name="telp" required type="number" class="validate" value="<?php echo $admin->no_telp; ?>">
                 <label for="telp">No Telepon</label>
               </div>
             </div>

@@ -3,23 +3,22 @@
 <head>
   @include('includes.head')
 </head>
-<body id="login">
-  <div class="bg-cover"></div>
+<body style="background-color: #9CFF9F;">
   <div class="row">
-    <div class="col s4 ">
-      <div class="card-panel z-depth-3 panel-login">
+    <div class="col s4 offset-s4" style="margin-top: 60px;">
+      <div class="card-panel z-depth-3 panel-signup">
         <div class="card-content">
           <div class="green darken-2">&nbsp;<br>&nbsp;</div>
-          <div class="card-title green darken-1">Login</div>
+          <div class="card-title green darken-1">Login Admin</div>
           <div style="padding:20px;">
 
             <div class="row">
-              <form class="col s12" method="post" action="admin">
+              <form class="col s12" method="post" action="dashboard">
                 <div class="row" style="margin-bottom:10px">
                   <div class="input-field col s12">
                     <i class="mdi-action-account-circle prefix grey-text lighten-2"></i>
-                    <input id="icon_prefix" type="text" class="validate" name="user">
-                    <label for="icon_prefix">Username</label>
+                    <input id="user" type="text" class="validate" name="user">
+                    <label for="user">Username</label>
                   </div>
                   <div class="input-field col s12">
                     <i class="mdi-action-lock prefix grey-text lighten-2"></i>
@@ -27,7 +26,7 @@
                     <label for="password">Password</label>
                   </div>
 
-                   <button class="btn waves-effect green lighten-1  waves-light" type="submit" style="margin-top:10px; width:100%;">Submit
+                   <button class="btn waves-effect green lighten-1  waves-light" type="submit" style="margin-top:10px; width:100%;">Login
                     <i class="mdi-content-send right"></i>
                   </button>
                 </div>

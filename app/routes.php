@@ -10,61 +10,36 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-if (Session::has('isAdmin')) {
+if (!Session::has('userType')) {
+	Session::put('userType', 'user');
+}
+
+if (Session::get('userType') == 'admin') {
 	Config::set('auth.model', 'Admin');
-} elseif (Session::has('isUser')) {
+} elseif((Session::get('userType') == 'user')) {
 	Config::set('auth.model', 'User');
 }
 
-Route::get('/', function()
+$auth = Auth::createEloquentDriver();
+Auth::setProvider($auth->getProvider());
+
+// Login Admin Handler
+Route::get('dashboard', array('uses' => 'LoginAdminController@showLogin'));
+Route::post('dashboard', array('uses' => 'LoginAdminController@doLogin'));
+Route::get('dashboard/logout', array('uses' => 'LoginAdminController@doLogout'));
+
+// Login User Handler
+Route::get('login', array('uses' => 'LoginUserController@showLogin'));
+Route::post('login', array('uses' => 'LoginUserController@doLogin'));
+Route::get('logout', array('uses' => 'LoginUserController@doLogout'));
+
+//Admin Routes
+Route::group(array('prefix' => 'dashboard', 'before' => 'authAdmin'), function()
 {
-	return View::make('index');
+  Route::resource('kelurahan', 'KelurahanController');
+  Route::resource('kecamatan', 'KecamatanController');
+  Route::resource('sektor', 'SektorController');
+  Route::resource('user', 'UserController');
+  Route::resource('admin', 'AdminController');
+  Route::resource('usaha', 'UsahaController');
 });
-
-Route::get('/test', function()
-{
-	return View::make('test');
-});
-
-Route::get('login', array('uses'	=>	'LoginUserController@showLogin'));
-Route::post('login', array('uses'	=>	'LoginUserController@doLogin'));
-Route::get('logout', array('uses'	=>	'LoginUserController@doLogout'));
-
-Route::get('admin', array('uses'	=>	'LoginAdminController@showLogin'));
-Route::post('admin', array('uses'	=>	'LoginAdminController@doLogin'));
-Route::get('admin/logout', array('uses'	=>	'LoginAdminController@doLogout'));
-
-
-Route::get('/signup', function()
-{
-  return View::make('signup');
-});
-
-Route::get('/dashboard', function ()
-{
-  return View::make('users.index');
-});
-Route::get('/table', function ()
-{
-  return View::make('users.usaha.view');
-});
-Route::get('/edit', function ()
-{
-  return View::make('users.usaha.edit');
-});
-Route::get('/setting', function ()
-{
-  return View::make('users.reset');
-});
-
-Route::get('/form', function ()
-{
-  return View::make('admin.form');
-});
-
-Route::get('/admin', function ()
-{
-  return View::make('loginadmin');
-});
-
-
