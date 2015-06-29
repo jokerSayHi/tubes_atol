@@ -18,8 +18,8 @@
                 <div class="row" style="margin-bottom:10px">
                   <div class="input-field col s12">
                     <i class="mdi-action-account-circle prefix grey-text lighten-2"></i>
-                    <input id="icon_prefix" type="text" class="validate" name="user">
-                    <label for="icon_prefix">Username</label>
+                    <input id="icon_prefix" type="text" class="validate" name="nik">
+                    <label for="icon_prefix">NIK</label>
                   </div>
                   <div class="input-field col s12">
                     <i class="mdi-action-lock prefix grey-text lighten-2"></i>

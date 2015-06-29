@@ -22,7 +22,9 @@ class KelurahanController extends BaseController {
 	 */
 	public function create()
 	{
-		//
+		$kec = Kecamatan::all();
+
+		return View::make('admin.kelurahan.form')->with('kec', $kec);
 	}
 
 
@@ -33,19 +35,23 @@ class KelurahanController extends BaseController {
 	 */
 	public function store()
 	{
-		//
-	}
+		$rules = array(
+			'kelurahan'	=>	'required',
+			'id'				=>	'required|numeric'
+		);
 
+		$validator = Validator::make(Input::all(), $rules);
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
+		if ($validator->fails()) {
+			return Redirect::intended('/dashboard/kelurahan/'.$id);
+		} else {
+			$kel = new Kelurahan;
+			$kel->nama_kelurahan = Input::get('kelurahan');
+			$kel->id_kecamatan = Input::get('id_kecamatan');
+			$kel->save();
+
+			return Redirect::intended('/dashboard/kelurahan');
+		}
 	}
 
 
@@ -57,7 +63,10 @@ class KelurahanController extends BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$kel = Kelurahan::find($id);
+		$kec = Kecamatan::all();
+
+		return View::make('admin.kelurahan.edit')->with(array('kel'	=> $kel, 'kec' => $kec));
 	}
 
 
@@ -69,7 +78,23 @@ class KelurahanController extends BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$rules = array(
+			'kelurahan'			=>	'required',
+			'id_kecamatan'	=>	'required|numeric'
+		);
+
+		$validator = Validator::make(Input::all(), $rules);
+
+		if ($validator->fails()) {
+			return Redirect::intended('dashboard/kelurahan/create');
+		} else {
+			$kel = Kelurahan::find($id);
+			$kel->nama_kelurahan = Input::get('kelurahan');
+			$kel->id_kecamatan = Input::get('id_kecamatan');
+			$kel->save();
+
+			return View::make('admin.kelurahan.table');
+		}
 	}
 
 
@@ -84,7 +109,7 @@ class KelurahanController extends BaseController {
 		$kel = Kelurahan::find($id);
 		$kel->delete();
 
-		return View::make('test');
+		return Redirect::intended('/dashboard/kelurahan');
 	}
 
 }

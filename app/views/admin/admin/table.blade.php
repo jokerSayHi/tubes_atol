@@ -28,17 +28,22 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>12345</td>
-              <td>Kampret</td>
-              <td>kampretos</td>
-              <td>kampret@mail.com</td>
-              <td>08579171912</td>
-              <td>
-                 <a class="btn-floating waves-effect waves-light yellow"><i class="mdi-content-create"></i></a>
-                 <a class="btn-floating waves-effect waves-light red"><i class="mdi-action-delete"></i></a> &nbsp;
-              </td>
-            </tr>
+            <?php
+            foreach ($admin as $key => $value) {
+              echo "<tr>";
+              echo "<td>" . $value->nip . "</td>";
+              echo "<td>" . $value->nama . "</td>";
+              echo "<td>" . $value->user . "</td>";
+              echo "<td>" . $value->email . "</td>";
+              echo "<td>" . $value->no_telp . "</td>";
+              ?>
+                <td>
+                  <a class="btn-floating waves-effect waves-light yellow" href="/dashboard/admin/<?php echo $value->nip; ?>/edit"><i class="mdi-content-create"></i></a>
+                  &nbsp;
+                </td>
+              <?php
+            }
+            ?>
           </tbody>
         </table>
       </div>

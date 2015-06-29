@@ -10,12 +10,18 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+if (!Session::has('userType')) {
+	Session::put('userType', 'user');
+}
 
-if (Session::has('isAdmin')) {
+if (Session::get('userType') == 'admin') {
 	Config::set('auth.model', 'Admin');
-} else {
+} elseif((Session::get('userType') == 'user')) {
 	Config::set('auth.model', 'User');
 }
+
+$auth = Auth::createEloquentDriver();
+Auth::setProvider($auth->getProvider());
 
 // Login Admin Handler
 Route::get('dashboard', array('uses' => 'LoginAdminController@showLogin'));
@@ -37,12 +43,18 @@ Route::get('test', function()
 	return View::make('test');
 });
 
-Route::get('user', array('before' => 'auth'), function()
+Route::get('user', array('before' => 'authUser'), function()
 {
 	return View::make('test');
 });
 
-Route::group(array('prefix' => 'dashboard', 'before' => 'auth'), function()
+//Admin Routes
+Route::group(array('prefix' => 'dashboard', 'before' => 'authAdmin'), function()
 {
 	Route::resource('kelurahan', 'KelurahanController');
+	Route::resource('kecamatan', 'KecamatanController');
+	Route::resource('sektor', 'SektorController');
+	Route::resource('user', 'UserController');
+	Route::resource('admin', 'AdminController');
+	Route::resource('usaha', 'UsahaController');
 });

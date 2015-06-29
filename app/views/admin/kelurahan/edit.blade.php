@@ -5,7 +5,7 @@
 </head>
 <body>
 
-  @include('includes.menuadmin')
+  @include('includes.navbar')
   <div id="slide-out" class="side-nav fixed">
     @include('includes.menuadmin')
   </div>
@@ -14,37 +14,37 @@
   <div class="container">
     <div class="row">
       <div class="card-panel card-table col offset-s2 s11">
-        <span class="card-title grey-text lighten-1" style="padding-left:0">Edit Admin ID: 123</span>
+        <span class="card-title grey-text lighten-1" style="padding-left:0">Edit Kelurahan <?php echo $kel->nama_kelurahan; ?></span>
         <div class="row">
-          <form class="col s12">
+          <form class="col s12" method="post" action="/dashboard/kelurahan/<?php echo $kel->id_kelurahan; ?>">
+            <input name="_method" type="hidden" value="PUT">
             <div class="row">
               <div class="input-field col s12">
-                <input id="nama" name="nama" required type="text" class="validate">
-                <label for="nama">Nama</label>
+                <input id="id" name="id_kelurahan" disabled type="text" class="validate" value="<?php echo $kel->id_kelurahan; ?>">
+                <label for="id">ID Kelurahan</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input id="username" name="username" required type="text" class="validate">
-                <label for="username">Username</label>
+                <input id="kelurahan" name="kelurahan" required type="text" class="validate" value="<?php echo $kel->nama_kelurahan; ?>">
+                <label for="kelurahan">Nama Kelurahan</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input id="password" name="password" required type="password" class="validate">
-                <label for="password">Password</label>
-              </div>
-            </div>
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="email" name="email" required type="email" class="validate">
-                <label for="email">Email</label>
-              </div>
-            </div>
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="telp" name="telp" required type="Number" class="validate">
-                <label for="telp">No Telepon</label>
+                <select name="id_kecamatan">
+                  <option value="">Pilih Kecamatan</option>
+                  <?php
+                  foreach ($kec as $key => $value) {
+                    if ($kel->id_kecamatan == $value->id_kecamatan) {
+                      echo "<option value=\"" . $value->id_kecamatan . "\" selected>" . $value->nama_kecamatan . "</option>";
+                    } else {
+                      echo "<option value=\"" . $value->id_kecamatan . "\">" . $value->nama_kecamatan . "</option>";
+                    }
+                  }
+                  ?>
+                </select>
+                <label>Nama kecamatan</label>
               </div>
             </div>
 

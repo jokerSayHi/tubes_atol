@@ -14,13 +14,6 @@
           </div>
           <!-- FORM -->
           <div class="row">
-            <?php
-              if (Auth::check()) {
-                echo "sudah login";
-              } else {
-                echo "belum login"; 
-              }
-            ?>
             <div class="col s12">
               <ul class="tabs">
                 <li class="tab col s3"><a class="active home-tab" href="#search">Search</a></li>

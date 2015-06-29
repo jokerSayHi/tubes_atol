@@ -1,3 +1,7 @@
-{{ Form::open(array('url' => 'login', 'method' => 'delete', 'files' => 'true')) }}
+<?php
 
-{{ Form::close() }}
+if (Session::get('userType') == 'admin') {
+	echo Session::get('userType');
+}
+
+echo Auth::user();

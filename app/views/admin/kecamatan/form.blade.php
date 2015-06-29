@@ -16,7 +16,7 @@
       <div class="card-panel card-table col offset-s2 s11">
         <span class="card-title grey-text lighten-1" style="padding-left:0">Tambah Kecamatan</span>
         <div class="row">
-          <form class="col s12">
+          <form class="col s12" method="post" action="/dashboard/kecamatan">
             <div class="row">
               <div class="input-field col s12">
                 <input id="kecamatan" name="kecamatan" required type="text" class="validate">
@@ -46,5 +46,10 @@
 
 
   @include('includes.scripts')
+  <script>
+    $(document).ready(function() {
+      $('select').material_select();
+    });
+  </script>
 </body>
 </html>

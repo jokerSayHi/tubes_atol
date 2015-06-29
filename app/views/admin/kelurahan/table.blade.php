@@ -19,7 +19,7 @@
         <table class="hoverable">
           <thead>
             <tr>
-              <th data-field="nip">ID Kelurahan</th>
+              <th data-field="nip">ID</th>
               <th data-field="nama">Nama Kelurahan</th>
               <th data-field="username">Nama Kecamatan</th>
               <th data-field="action">Action</th>

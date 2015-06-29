@@ -33,25 +33,35 @@ App::after(function($request, $response)
 |
 */
 
-Route::filter('auth', function()
+Route::filter('authUser', function()
 {
 	if (Auth::guest())
 	{
-		if (Request::ajax())
+		return Redirect::guest('/');
+	}
+	else
+	{
+		if (Session::get('userType') == 'admin')
 		{
-			return Response::make('Unauthorized', 401);
-		}
-		else
-		{
-			if (Session::has('isAdmin')) {
-				return Redirect::guest('dashboard');
-			} else {
-				return Redirect::guest('login');
-			}
+			return Redirect::intended('dashboard');
 		}
 	}
 });
 
+Route::filter('authAdmin', function()
+{
+	if (Auth::guest())
+	{
+		return Redirect::guest('dashboard');
+	}
+	else
+	{
+		if (Session::get('userType') == 'user')
+		{
+			return Redirect::intended('/');
+		}
+	}
+});
 
 Route::filter('auth.basic', function()
 {

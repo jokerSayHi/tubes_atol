@@ -15,7 +15,7 @@ class LoginAdminController extends BaseController {
 	{
 		$rules = array(
 			'user'	=>	'required',
-			'password'	=>	'required|alphaNum|min:3'
+			'password'	=>	'required|min:3'
 		);
 
 		$validator = Validator::make(Input::all(), $rules);
@@ -23,7 +23,7 @@ class LoginAdminController extends BaseController {
 		if ($validator->fails()) {
 			return View::make('admin.login');
 		} else {
-			$userdata = array(
+			$credentials = array(
 				'user'	=>	Input::get('user'),
 				'password'	=>	Input::get('password')
 			);
@@ -32,11 +32,11 @@ class LoginAdminController extends BaseController {
 			$auth = Auth::createEloquentDriver();
 			Auth::setProvider($auth->getProvider());
 
-			if(Auth::attempt($userdata)) {
-				Session::put('isAdmin', true);
-				return View::make('admin.dashboard');
+			if(Auth::attempt($credentials)) {
+				Session::put('userType', 'admin');
+				return Redirect::intended('dashboard');
 			} else {
-				return View::make('admin.login');
+				return Redirect::intended('dashboard');
 			}
 		}
 	}
@@ -44,7 +44,7 @@ class LoginAdminController extends BaseController {
 	public function doLogout()
 	{
 		Auth::logout();
-		Session::flush();
+		Session::put('userType', 'user');
 		return Redirect::intended('dashboard');
 	}
 
