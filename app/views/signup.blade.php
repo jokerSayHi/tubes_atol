@@ -62,6 +62,9 @@
                     <label for="tgl_lahir">Tanggal Lahir</label>
                   </div>
 
+                  <input type="hidden" name="tanggallahir" id="tanggallahir">
+
+
                   {{-- NO TELEPON --}}
                   <div class="input-field col s12">
                     <input id="no_telp" type="text" class="validate">
@@ -99,6 +102,32 @@
     selectMonths: true, // Creates a dropdown to control month
     selectYears: 15 // Creates a dropdown of 15 years to control year
   });
+
+   function tanggalLahir () {
+    var date = document.getElementById('tgl_lahir').value;
+
+    var hari = new Date(date).getDate();
+    var bulan = new Date(date).getMonth();
+    var tahun = new Date(date).getFullYear();
+
+    window.hari = hari;
+    var harinya, bulannya;
+
+    if(hari.toString().length === 1){
+      harinya = '0' + hari;
+    } else {
+      harinya = hari;
+    }
+
+    if(bulan.toString().length === 1){
+      bulannya = '0'+ bulan;
+    } else {
+      bulannya = bulan;
+    }
+
+    $('#tanggallahir').val(tahun + '-' + bulannya + '-' + harinya);
+
+  }
   </script>
 </body>
 </html>

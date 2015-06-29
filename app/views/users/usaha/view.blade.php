@@ -96,7 +96,11 @@
               </td>
             </tr>
             <tr>
-              <td colspan="3"><img src="http://placehold.it/930x250?text=peta(930x250)" alt=""></td>
+              <td colspan="3">
+                {{-- PAKE JQUERY DARI API --}}
+                <img src="https://maps.googleapis.com/maps/api/staticmap?center=-6.886466,107.613777&zoom=17&size=800x250&markers=-6.886466,107.613777" alt="">
+                {{-- <img src="http://placehold.it/930x250?text=peta(930x250)" alt=""> --}}
+              </td>
             </tr>
 
             <tr>
@@ -106,11 +110,11 @@
             </tr>
             <tr>
               <td colspan="3">
-                <img src="http://placehold.it/183x183?text=183x183" alt="">
-                <img src="http://placehold.it/183x183?text=gambar2" alt="">
-                <img src="http://placehold.it/183x183?text=gambar3" alt="">
-                <img src="http://placehold.it/183x183?text=gambar4" alt="">
-                <img src="http://placehold.it/183x183?text=gambar5" alt="">
+                <img src="http://placehold.it/180x180?text=183x183" alt="">
+                <img src="http://placehold.it/180x180?text=gambar2" alt="">
+                <img src="http://placehold.it/180x180?text=gambar3" alt="">
+                <img src="http://placehold.it/180x180?text=gambar4" alt="">
+                <img src="http://placehold.it/180x180?text=gambar5" alt="">
               </td>
             </tr>
             <tr>

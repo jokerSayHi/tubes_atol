@@ -42,7 +42,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="input-field col s12">
+
                 <input id="tlp_usaha" type="text" nama="tlp_usaha" class="validate">
                 <label for="tlp_usaha">Telepon Usaha</label>
               </div>
@@ -61,7 +61,7 @@
                 <input class="with-gap" name="skala" type="radio" id="skala3"  />
                 <label for="skala3">Menengah</label>
               </p>
-            </div>        
+            </div>
             <div class="row">
               <p>Status Aktif</p>
               <p>
@@ -94,7 +94,7 @@
                 </select>
                 <label>Sektor</label>
               </div>
-            </div>  
+            </div>
 
             <div class="row center-align">
               <div class="col s6">

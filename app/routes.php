@@ -46,17 +46,16 @@ Route::get('/dashboard', function ()
 });
 Route::get('/table', function ()
 {
-  return View::make('users.user.view');
+  return View::make('users.usaha.view');
 });
 Route::get('/edit', function ()
 {
-  return View::make('admin.usaha.edit');
+  return View::make('users.usaha.edit');
 });
 Route::get('/setting', function ()
 {
   return View::make('users.reset');
 });
-
 
 Route::get('/form', function ()
 {

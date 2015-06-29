@@ -1,14 +1,56 @@
 <script src="{{ asset('vendor/jquery/dist/jquery.min.js') }}"></script>
 <script src="{{ asset('vendor/materialize/dist/js/materialize.min.js') }}"></script>
 
-{{-- <script src="http://cdn.leafletjs.com/leaflet-0.3.1/leaflet.js"></script>
-<script src="http://maps.google.com/maps/api/js?v=3.2&sensor=false"></script> --}}
-<script src="http://matchingnotes.com/javascripts/leaflet-google.js"></script>
-<script type="text/javascript">
-  var map = new L.Map('map', {center: new L.LatLng(51.51, -0.11), zoom: 9});
-  var googleLayer = new L.Google('ROADMAP');
-  map.addLayer(googleLayer);
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBcHVM90ogkhbOB3_EHloE2L7bA5c1WFQ"></script>
 
+<script type="text/javascript">
+function initialize() {
+  var mapOptions = {
+    zoom: 4,
+    center: new google.maps.LatLng(-25.363882, 131.044922)
+  };
+
+  var map = new google.maps.Map(document.getElementById('map'),
+      mapOptions);
+
+  // Add 5 markers to the map at random locations
+  var southWest = new google.maps.LatLng(-31.203405, 125.244141);
+  var northEast = new google.maps.LatLng(-25.363882, 131.044922);
+
+  var bounds = new google.maps.LatLngBounds(southWest, northEast);
+  map.fitBounds(bounds);
+
+  var lngSpan = northEast.lng() - southWest.lng();
+  var latSpan = northEast.lat() - southWest.lat();
+
+  for (var i = 0; i < 5; i++) {
+    var position = new google.maps.LatLng(
+        southWest.lat() + latSpan * Math.random(),
+        southWest.lng() + lngSpan * Math.random());
+    var marker = new google.maps.Marker({
+      position: position,
+      map: map
+    });
+
+    marker.setTitle((i + 1).toString());
+    attachSecretMessage(marker, i);
+  }
+}
+
+// The five markers show a secret message when clicked
+// but that message is not within the marker's instance data
+function attachSecretMessage(marker, num) {
+  var message = ['This', 'is', 'the', 'secret', 'message'];
+  var infowindow = new google.maps.InfoWindow({
+    content: message[num]
+  });
+
+  google.maps.event.addListener(marker, 'click', function() {
+    infowindow.open(marker.get('map'), marker);
+  });
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
 </script>
 
 
