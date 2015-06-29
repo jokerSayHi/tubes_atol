@@ -42,16 +42,21 @@ Route::get('/signup', function()
 
 Route::get('/dashboard', function ()
 {
-  return View::make('admin.sektor.form');
+  return View::make('users.index');
 });
 Route::get('/table', function ()
 {
-  return View::make('admin.sektor.table');
+  return View::make('users.user.view');
 });
 Route::get('/edit', function ()
 {
-  return View::make('admin.sektor.edit');
+  return View::make('admin.usaha.edit');
 });
+Route::get('/setting', function ()
+{
+  return View::make('users.reset');
+});
+
 
 Route::get('/form', function ()
 {

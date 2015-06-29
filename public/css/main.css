@@ -1,3 +1,7 @@
+body{
+  background-color: #f5f5f5
+}
+
 .title-container{
   width: 100%;
   height: 190px;
@@ -100,8 +104,8 @@
 
 .dashboard-menu{
   width: 100%;
-  padding: 20px 10px !important;
   border-bottom: 1px solid #E2E2E2;
+  padding: 10px 10px !important;
 }
 
 .dashboard-menu-nd{
@@ -128,4 +132,43 @@
   border: 1px solid #43A047;
   line-height: 34px !important;
   color: #43A047 !important;
+}
+
+.user-navbar{
+  float: right !important;
+  padding: 10px !important;
+  width: 100%;
+  font-size: 1.4em;
+  border-bottom:1px solid #e2e2e2;
+}
+
+.title-container .content{
+  display: inline-flex;
+  margin:0;
+  font-size: 1.3em;
+  position: absolute;
+  left: 10%;
+  top: 18%;
+}
+
+.title-container .content .img{
+  margin-top:8px;
+}
+
+.title-container .content .name{
+  margin-left:15px;
+}
+
+.change-pass{
+  margin-top: 120px;
+}
+
+.side-nav li:hover, .side-nav li.active .collapsible-body ul li {
+  background-color: #ddd;
+}
+
+
+.side-nav li.active .collapsible-body ul li:hover > a {
+  background-color: #ffffff;
+  width: 100%
 }
