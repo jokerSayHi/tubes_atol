@@ -48,7 +48,6 @@ Route::get('/table', function ()
 {
   return View::make('admin.sektor.table');
 });
-
 Route::get('/edit', function ()
 {
   return View::make('admin.sektor.edit');

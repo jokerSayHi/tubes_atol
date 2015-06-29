@@ -14,43 +14,24 @@
   <div class="container">
     <div class="row">
       <div class="card-panel card-table col offset-s2 s11">
-        <span class="card-title grey-text lighten-1" style="padding-left:0">Tambah Admin</span>
+        <span class="card-title grey-text lighten-1" style="padding-left:0">Tambah Kelurahan</span>
         <div class="row">
           <form class="col s12">
             <div class="row">
               <div class="input-field col s12">
-                <input id="nip" name="nip" required type="text" class="validate">
-                <label for="nip">NIP</label>
+                <input id="kelurahan" name="kelurahan" required type="text" class="validate">
+                <label for="kelurahan">Nama Kelurahan</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input id="nama" name="nama" required type="text" class="validate">
-                <label for="nama">Nama</label>
-              </div>
-            </div>
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="username" name="username" required type="text" class="validate">
-                <label for="username">Username</label>
-              </div>
-            </div>
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="password" name="password" required type="password" class="validate">
-                <label for="password">Password</label>
-              </div>
-            </div>
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="email" name="email" required type="email" class="validate">
-                <label for="email">Email</label>
-              </div>
-            </div>
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="telp" name="telp" required type="Number" class="validate">
-                <label for="telp">No Telepon</label>
+                <select>
+                  <option value="" disabled selected>Pilih Kecamatan</option>
+                  <option value="1">Option 1</option>
+                  <option value="2">Option 2</option>
+                  <option value="3">Option 3</option>
+                </select>
+                <label>Kecamatan</label>
               </div>
             </div>
 
@@ -70,5 +51,12 @@
 
 
   @include('includes.scripts')
+
+  <script>
+    $(document).ready(function() {
+    $('select').material_select();
+  });
+  </script>
+  
 </body>
 </html>
