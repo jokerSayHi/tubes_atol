@@ -43,8 +43,8 @@ class UserController extends BaseController {
 			'alamat'				=>	'required',
 			'tempat_lahir'	=>	'required',
 			'tgl_lahir'			=>	'required',
-			'no_telp'				=>	'required|numeric',
-			'status_aktif'	=>	'required',
+			'telp'					=>	'required',
+			'status'				=>	'required'
 		);
 
 		$validator = Validator::make(Input::all(), $rules);
@@ -52,7 +52,17 @@ class UserController extends BaseController {
 		if ($validator->fails()) {
 			return Redirect::intended('/dashboard/user/'.$id.'/edit');
 		} else {
-			
+			$user = User::find($id);
+			$user->nama = Input::get('nama');
+			$user->email = Input::get('email');
+			$user->alamat = Input::get('alamat');
+			$user->tempat_lahir = Input::get('tempat_lahir');
+			$user->tgl_lahir = Input::get('tgl_lahir');
+			$user->no_telp = Input::get('telp');
+			$user->status_aktif = Input::get('status');
+			$user->save();
+
+			return Redirect::intended('/dashboard/user');
 		}
 	}
 
@@ -65,7 +75,10 @@ class UserController extends BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$user = User::find($id);
+		$user->delete();
+
+		return Redirect::intended('/dashboard/user');
 	}
 
 }

@@ -33,7 +33,7 @@
               echo "<td>" . $value->nama_kecamatan . "</td>";
               echo "<td>" . $value->kode_pos . "</td>";
               ?>
-              <form method="POST" action="http://localhost:8000/dashboard/kecamatan/{{ $value->id_kecamatan }}" accept-charset="UTF-8">
+                <form method="POST" action="http://localhost:8000/dashboard/kecamatan/{{ $value->id_kecamatan }}" accept-charset="UTF-8">
                   <input name="_method" type="hidden" value="DELETE">
                   <input name="_token" type="hidden" value="6b5CRRCcCDq0lur2HlN8yt4GpTb5o3dSlQUxCXzN">
                   <td>

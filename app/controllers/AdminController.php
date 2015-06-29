@@ -33,7 +33,29 @@ class AdminController extends BaseController {
 	 */
 	public function store()
 	{
-		
+		$rules = array(
+			'nama'				=>	'required',
+			'input_user'	=>	'required',
+			'email'				=>	'required',
+			'input_pass'	=>	'required',
+			'telp'				=>	'required'
+		);
+
+		$validator = Validator::make(Input::all(), $rules);
+
+		if ($validator->fails()) {
+			return Redirect::intended('/dashboard/admin/create');
+		} else {
+			$admin = new Admin;
+			$admin->nama = Input::get('nama');
+			$admin->user = Input::get('input_user');
+			$admin->email = Input::get('email');
+			$admin->password = Hash::make(Input::get('input_pass'));
+			$admin->no_telp = Input::get('telp');
+			$admin->save();
+
+			return Redirect::intended('/dashboard/admin');
+		}
 	}
 
 

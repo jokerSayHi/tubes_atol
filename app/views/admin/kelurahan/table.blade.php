@@ -34,7 +34,7 @@
               echo "<td>" . $value->nama_kelurahan . "</td>";
               echo "<td>" . $kec->nama_kecamatan . "</td>";
               ?>
-                <form method="POST" action="http://localhost:8000/dashboard/kelurahan/{{ $value->id_kelurahan }}" accept-charset="UTF-8">
+                <form method="POST" action="/dashboard/kelurahan/{{ $value->id_kelurahan }}" accept-charset="UTF-8">
                   <input name="_method" type="hidden" value="DELETE">
                   <input name="_token" type="hidden" value="6b5CRRCcCDq0lur2HlN8yt4GpTb5o3dSlQUxCXzN">
                   <td>

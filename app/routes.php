@@ -58,3 +58,9 @@ Route::group(array('prefix' => 'dashboard', 'before' => 'authAdmin'), function()
 	Route::resource('admin', 'AdminController');
 	Route::resource('usaha', 'UsahaController');
 });
+
+//API Routes
+Route::group(array('prefix' => 'api'), function()
+{
+	Route::get('usaha', array('uses' => 'ApiUsaha@index'));
+});

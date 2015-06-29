@@ -30,18 +30,31 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>12345</td>
-              <td>Kampret</td>
-              <td>kampret@mail.com</td>
-              <td>alamat nya panjang ceritanya</td>
-              <td>08123123123</td>
-              <td><img src="http://placehold.it/230x150" alt=""></td>
-              <td>Aktif</td>
-              <td>
-                 <a class="btn-floating waves-effect waves-light yellow"><i class="mdi-content-create"></i></a>
-                 <a class="btn-floating waves-effect waves-light red"><i class="mdi-action-delete"></i></a> &nbsp;
-              </td>
+            <?php
+            foreach ($user as $key => $value) {
+              echo "<tr>";
+              echo "<td>" . $value->nik . "</td>";
+              echo "<td>" . $value->nama . "</td>";
+              echo "<td>" . $value->email . "</td>";
+              echo "<td>" . $value->alamat . "</td>";
+              echo "<td>" . $value->no_telp . "</td>";
+              echo "<td><img src=\"images/" . $value->foto_ktp . "\" alt=\"\"></td>";
+              echo "<td>" . $value->status_aktif . "</td>";
+              ?>
+                <form method="POST" action="/dashboard/user/{{ $value->nik }}" accept-charset="UTF-8">
+                  <input name="_method" type="hidden" value="DELETE">
+                  <input name="_token" type="hidden" value="6b5CRRCcCDq0lur2HlN8yt4GpTb5o3dSlQUxCXzN">
+                  <td>
+                  <a class="btn-floating waves-effect waves-light yellow" href="/dashboard/user/<?php echo $value->nik; ?>/edit"><i class="mdi-content-create"></i></a>
+                  &nbsp;
+                  <button class="btn-floating waves-effect waves-light red" type="submit">
+                    <i class="mdi-action-delete"></i>
+                  </button>
+                  </td>
+                </form>
+              <?php
+            }
+            ?>
             </tr>
           </tbody>
         </table>
