@@ -42,16 +42,16 @@ Route::get('/signup', function()
 
 Route::get('/dashboard', function ()
 {
-  return View::make('admin.kecamatan.form');
+  return View::make('admin.sektor.form');
 });
 Route::get('/table', function ()
 {
-  return View::make('admin.kecamatan.table');
+  return View::make('admin.sektor.table');
 });
 
 Route::get('/edit', function ()
 {
-  return View::make('admin.kecamatan.edit');
+  return View::make('admin.sektor.edit');
 });
 
 Route::get('/form', function ()

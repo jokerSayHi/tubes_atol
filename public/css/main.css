@@ -110,7 +110,7 @@
 }
 
 .btn-table, .btn-dashboard{
-  position: absolute;
+  position: fixed;
   right: 3%;
   bottom: 7%;
 }
