@@ -50,3 +50,14 @@ Route::group(array('prefix' => 'api'), function()
 {
 	Route::get('usaha', array('uses' => 'ApiUsaha@index'));
 });
+
+// INDEX
+Route::get('/', function ()
+{
+  return View::make('index');
+});
+
+Route::get('/signup', function ()
+{
+  return View::make('signup');
+});

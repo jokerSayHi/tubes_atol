@@ -10,7 +10,11 @@
       <div class="card-panel z-depth-3 panel-login">
         <div class="card-content">
           <div class="green darken-2">&nbsp;<br>&nbsp;</div>
-          <div class="card-title green darken-1">Login</div>
+          <div class="card-title green darken-1">
+          <a href="/" class="waves-effect waves-light" style="border-radius:50%">
+            <i class="mdi-navigation-arrow-back left" style="color:#fff; margin-left:7.5px; margin-right:7.5px"></i>
+          </a>
+          Login</div>
           <div style="padding:20px;">
 
             <div class="row">

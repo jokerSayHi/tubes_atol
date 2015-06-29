@@ -50,7 +50,7 @@
     </div>
   </div>
 
-  <a class="tooltipped btn-floating btn-table btn-large waves-effect waves-light blue" data-position="left" data-delay="50" data-tooltip="Tambah Data Admin"><i class="mdi-content-add"></i></a>
+  <a href="/dashboard/admin/create" class="tooltipped btn-floating btn-table btn-large waves-effect waves-light blue" data-position="left" data-delay="50" data-tooltip="Tambah Data Admin"><i class="mdi-content-add"></i></a>
 
   @include('includes.scripts')
 </body>

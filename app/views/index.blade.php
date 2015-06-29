@@ -49,8 +49,8 @@
                 <h2 class="footer-title grey-text text-lighten-1">
                   Account
                 </h2>
-                <a class="waves-effect blue darken-1 white-text waves-light btn btn-flat btn-login">Login</a>
-                <a class="waves-effect teal darken-1 white-text waves-light btn btn-flat btn-login" style="margin-top:5px">Signup</a>
+                <a href="/login" class="waves-effect blue darken-1 white-text waves-light btn btn-flat btn-login">Login</a>
+                <a href="/signup" class="waves-effect teal darken-1 white-text waves-light btn btn-flat btn-login" style="margin-top:5px">Signup</a>
               </div>
             </div>
           </div>

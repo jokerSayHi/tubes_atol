@@ -3,11 +3,11 @@
 class LoginUserController extends BaseController {
 
 	public function showLogin()
-	{		
+	{
 		if (Auth::check()) {
 			return Redirect::intended('/');
 		} else {
-			return View::make('login'); 
+			return View::make('login');
 		}
 	}
 
@@ -25,7 +25,8 @@ class LoginUserController extends BaseController {
 		} else {
 			$credentials = array(
 				'nik'	=>	Input::get('nik'),
-				'password'	=>	Input::get('password')
+				'password'	=>	Input::get('password'),
+				'status_aktif' => 'Y'
 			);
 
 			Config::set('auth.model', 'User');

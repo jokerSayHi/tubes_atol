@@ -52,7 +52,7 @@
     </div>
   </div>
 
-  <a class="tooltipped btn-floating btn-table btn-large waves-effect waves-light blue" data-position="left" data-delay="50" data-tooltip="Tambah Data Sektor"><i class="mdi-content-add"></i></a>
+  <a href="/dashboard/sektor/create" class="tooltipped btn-floating btn-table btn-large waves-effect waves-light blue" data-position="left" data-delay="50" data-tooltip="Tambah Data Sektor"><i class="mdi-content-add"></i></a>
 
   @include('includes.scripts')
 </body>
