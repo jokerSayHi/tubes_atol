@@ -37,7 +37,7 @@ Route::filter('authUser', function()
 {
 	if (Auth::guest())
 	{
-		return Redirect::guest('/');
+		return Redirect::guest('/login');
 	}
 	else
 	{

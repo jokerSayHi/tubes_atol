@@ -1,7 +1,3 @@
-<?php
+{{ Form::open(array('url' => '/test', 'files' => 'true')) }}
 
-if (Session::get('userType') == 'admin') {
-	echo Session::get('userType');
-}
-
-echo Auth::user();
+{{ Form::close() }}

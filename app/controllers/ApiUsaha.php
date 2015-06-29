@@ -22,6 +22,7 @@ class ApiUsaha extends BaseController {
 				{
 					$join->on('usaha.nik', '=', 'users.nik');
 				})
+			->where('usaha.status_aktif', '=', 'Y')
 			->get();
 
 		return Response::json(array('result' => $result));

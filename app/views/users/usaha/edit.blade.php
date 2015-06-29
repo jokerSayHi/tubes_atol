@@ -14,11 +14,20 @@
           <div class="green darken-2" style="30px">&nbsp;</div>
           <div class="title-container green darken-1 white-text">
             <div class="content">
+              <?php
+                $nama = explode(" ", Auth::user()->nama);
+                $n = [];
+                foreach ($nama as $value) {
+                  $init = $value;
+                  $n[] = $init[0];
+                }
+                $final = implode("", $n);
+              ?>
               <p class="img">
-                <img src="http://placehold.it/50x50/d32f2f/ffffff?text=AS" style="border-radius:50%">
+                <img src="http://placehold.it/50x50/d32f2f/ffffff?text=<?php echo $final; ?>" style="border-radius:50%">
               </p>
               <p class="name">
-                Alfons Santoso
+                {{ Auth::user()->nama }}
               </p>
             </div>
           </div>
@@ -37,37 +46,38 @@
     <div class="col s9">
       <div class="row">
         <div class="col s12 card card-table">
-          <span class="card-title grey-text lighten-1" style="padding-left:0">Edit Usaha : [Nama Usaha]</span>
+          <span class="card-title grey-text lighten-1" style="padding-left:0">Edit Usaha : <?php echo $usaha->nama_usaha; ?></span>
 
-          <form class="col s12">
+          <form class="col s12" method="post" action="/usaha/<?php echo $usaha->id_usaha; ?>">
+            <input name="_method" type="hidden" value="PUT">
             <div class="row">
               <div class="input-field col s12">
-                <input id="nama_usaha" name="nama_usaha" required type="text" class="validate">
+                <input id="nama_usaha" name="nama_usaha" required type="text" class="validate" value="<?php echo $usaha->nama_usaha; ?>">
                 <label for="nama_usaha">Nama Usaha</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input id="produk_utama" name="produk_utama" required type="text" class="validate">
+                <input id="produk_utama" name="produk_utama" required type="text" class="validate" value="<?php echo $usaha->produk_utama; ?>">
                 <label for="produk_utama">Produk Utama</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input id="alamat_usaha" name="alamat_usaha" required type="text" class="validate">
+                <input id="alamat_usaha" name="alamat_usaha" required type="text" class="validate" value="<?php echo $usaha->alamat_usaha; ?>">
                 <label for="alamat_usaha">Alamat Usaha</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input id="deskripsi" name="deskripsi" required type="text" class="validate">
+                <input id="deskripsi" name="deskripsi" required type="text" class="validate" value="<?php echo $usaha->deskripsi; ?>">
                 <label for="deskripsi">Deskripsi</label>
               </div>
             </div>
 
             <div class="row">
               <div class="input-field col s12">
-                <input id="telp_usaha" type="text" nama="telp_usaha" class="validate">
+                <input id="telp_usaha" type="text" nama="telp_usaha" class="validate" value="<?php echo $usaha->telp_usaha; ?>">
                 <label for="telp_usaha">Telepon Usaha</label>
               </div>
             </div>
@@ -75,15 +85,15 @@
             <div class="row">
               <p>Skala Usaha</p>
               <p>
-                <input class="with-gap" name="skala" type="radio" id="skala1"  />
+                <input class="with-gap" name="skala" type="radio" id="skala1" value="Mikro" <?php if($usaha->skala_usaha == 'Mikro') echo "checked"; ?> />
                 <label for="skala1">Mikro</label>
               </p>
               <p>
-                <input class="with-gap" name="skala" type="radio" id="skala2"  />
+                <input class="with-gap" name="skala" type="radio" id="skala2" value="Kecil" <?php if($usaha->skala_usaha == 'Kecil') echo "checked"; ?> />
                 <label for="skala2">Kecil</label>
               </p>
               <p>
-                <input class="with-gap" name="skala" type="radio" id="skala3"  />
+                <input class="with-gap" name="skala" type="radio" id="skala3" value="Menengah" <?php if($usaha->skala_usaha == 'Menengah') echo "checked"; ?> />
                 <label for="skala3">Menengah</label>
               </p>
             </div>
@@ -94,12 +104,12 @@
                 <div id="map-add" style="height: 300px;"></div>
 
                 <div class="input-field col s6">
-                  <input placeholder="Latitude" id="lat" name="lat" type="text" class="validate">
+                  <input placeholder="Latitude" id="lat" name="lat" type="text" class="validate" value="<?php echo $usaha->latitude; ?>">
                   <label for="lat">Latitude</label>
                 </div>
 
                 <div class="input-field col s6">
-                  <input placeholder="Longitude" id="long" name="long" type="text" class="validate">
+                  <input placeholder="Longitude" id="long" name="long" type="text" class="validate" value="<?php echo $usaha->longitude; ?>">
                   <label for="long">Longitude</label>
                 </div>
               </div>
@@ -112,7 +122,7 @@
                 <input class="file-path validate" type="text"/>
                 <div class="btn">
                   <span><i class="mdi-file-file-upload left"></i> Gambar 1</span>
-                  <input type="file" />
+                  <input type="file" name="gambar_satu" />
                 </div>
               </div>
             </div>
@@ -122,7 +132,7 @@
                 <input class="file-path validate" type="text"/>
                 <div class="btn">
                   <span><i class="mdi-file-file-upload left"></i> Gambar 2</span>
-                  <input type="file" />
+                  <input type="file" name="gambar_satu" />
                 </div>
               </div>
             </div>
@@ -132,7 +142,7 @@
                 <input class="file-path validate" type="text"/>
                 <div class="btn">
                   <span><i class="mdi-file-file-upload left"></i> Gambar 3</span>
-                  <input type="file" />
+                  <input type="file" name="gambar_satu" />
                 </div>
               </div>
             </div>
@@ -142,7 +152,7 @@
                 <input class="file-path validate" type="text"/>
                 <div class="btn">
                   <span><i class="mdi-file-file-upload left"></i> Gambar 4</span>
-                  <input type="file" />
+                  <input type="file" name="gambar_satu" />
                 </div>
               </div>
             </div>
@@ -152,7 +162,7 @@
                 <input class="file-path validate" type="text"/>
                 <div class="btn">
                   <span><i class="mdi-file-file-upload left"></i> Gambar 5</span>
-                  <input type="file" />
+                  <input type="file" name="gambar_satu" />
                 </div>
               </div>
             </div>
@@ -161,22 +171,28 @@
 
             <div class="row">
               <div class="input-field col s12">
-                <select>
+                <select name="id_kelurahan">
                   <option value="" disabled selected>Pilih Kelurahan</option>
-                  <option value="1">Option 1</option>
-                  <option value="2">Option 2</option>
-                  <option value="3">Option 3</option>
+                  <?php
+                  $kel = Kelurahan::all();
+                  foreach ($kel as $key => $value) {
+                    echo "<option value=\"" . $value->id_kelurahan . "\">" . $value->nama_kelurahan . "</option>";
+                  }
+                  ?>
                 </select>
                 <label>Kelurahan</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <select>
+                <select name="id_sektor">
                   <option value="" disabled selected>Pilih Sektor</option>
-                  <option value="1">Option 1</option>
-                  <option value="2">Option 2</option>
-                  <option value="3">Option 3</option>
+                  <?php
+                  $sektor = Sektor::all();
+                  foreach ($sektor as $key => $value) {
+                    echo "<option value=\"" . $value->id_sektor . "\">" . $value->nama_sektor . "</option>";
+                  }
+                  ?>
                 </select>
                 <label>Sektor</label>
               </div>
@@ -185,7 +201,7 @@
 
             <div class="row center-align">
               <div class="col s6">
-                <button class="btn blue lighten-1 btn-block">Update</button>
+                <button class="btn blue lighten-1 btn-block" type="submit">Update</button>
               </div>
               <div class="col s6">
                 <button class="btn red lighten-1 btn-block" type="reset">Reset</button>
@@ -196,15 +212,6 @@
         </div>
       </div>
     </div>
-  </div>
-
-  <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
-    <a class="tooltipped btn-floating  btn-large waves-effect waves-light blue" data-position="left" data-delay="50" data-tooltip="Edit Profile">
-      <i class="mdi-content-create"></i>
-    </a>
-    <ul style="margin-bottom:-10px">
-      <li class="tooltipped " data-position="left" data-delay="50" data-tooltip="Change Password"><a class="btn-floating waves-effect waves-light red"><i class="mdi-action-lock-outline"></i></a></li>
-    </ul>
   </div>
 
   @include('includes.scripts')

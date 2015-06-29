@@ -10,9 +10,4 @@ class Kelurahan extends Eloquent {
 
 	protected $primaryKey = 'id_kelurahan';
 
-	public function kecamatan()
-	{
-		return $this->belongsTo('Kecamatan');
-	}
-	
 }

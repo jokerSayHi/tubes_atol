@@ -41,7 +41,6 @@ Route::get('logout', array('uses' => 'LoginUserController@doLogout'));
 //Admin Routes
 Route::group(array('prefix' => 'dashboard', 'before' => 'authAdmin'), function()
 {
-
 	Route::resource('kelurahan', 'KelurahanController');
 	Route::resource('kecamatan', 'KecamatanController');
 	Route::resource('sektor', 'SektorController');
@@ -50,8 +49,22 @@ Route::group(array('prefix' => 'dashboard', 'before' => 'authAdmin'), function()
 	Route::resource('usaha', 'UsahaController');
 });
 
+Route::group(array('before' => 'authUser'), function()
+{
+	Route::resource('usaha', 'UserUsahaController');
+});
+
 //API Routes
 Route::group(array('prefix' => 'api'), function()
 {
 	Route::get('usaha', array('uses' => 'ApiUsaha@index'));
 });
+
+Route::get('test', function()
+{
+	return View::make('test');
+});
+
+Route::get('signup', array('uses' => 'RegisterController@showRegister'));
+Route::post('signup', array('uses' => 'RegisterController@doRegister'));
+

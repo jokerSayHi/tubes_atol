@@ -15,10 +15,19 @@
           <div class="title-container green darken-1 white-text">
             <div class="content">
               <p class="img">
-                <img src="http://placehold.it/50x50/d32f2f/ffffff?text=AS" style="border-radius:50%">
+                <?php
+                $nama = explode(" ", Auth::user()->nama);
+                $n = [];
+                foreach ($nama as $value) {
+                  $init = $value;
+                  $n[] = $init[0];
+                }
+                $final = implode("", $n);
+                ?>
+                <img src="http://placehold.it/50x50/d32f2f/ffffff?text=<?php echo $final; ?>" style="border-radius:50%">
               </p>
               <p class="name">
-                Alfons Santoso
+                {{ Auth::user()->nama }}
               </p>
             </div>
           </div>
@@ -67,7 +76,7 @@
 
             <div class="row">
               <div class="input-field col s12">
-                <input id="telp_usaha" type="text" nama="telp_usaha" class="validate">
+                <input id="telp_usaha" type="text" name="telp_usaha" class="validate">
                 <label for="telp_usaha">Telepon Usaha</label>
               </div>
             </div>
@@ -75,15 +84,15 @@
             <div class="row">
               <p>Skala Usaha</p>
               <p>
-                <input class="with-gap" name="skala" type="radio" id="skala1"  />
+                <input class="with-gap" name="skala" value="Mikro" type="radio" id="skala1"  />
                 <label for="skala1">Mikro</label>
               </p>
               <p>
-                <input class="with-gap" name="skala" type="radio" id="skala2"  />
+                <input class="with-gap" name="skala" value="Kecil" type="radio" id="skala2"  />
                 <label for="skala2">Kecil</label>
               </p>
               <p>
-                <input class="with-gap" name="skala" type="radio" id="skala3"  />
+                <input class="with-gap" name="skala" value="Menengah" type="radio" id="skala3"  />
                 <label for="skala3">Menengah</label>
               </p>
             </div>
@@ -161,22 +170,26 @@
 
             <div class="row">
               <div class="input-field col s12">
-                <select>
+                <select name="id_kelurahan">
                   <option value="" disabled selected>Pilih Kelurahan</option>
-                  <option value="1">Option 1</option>
-                  <option value="2">Option 2</option>
-                  <option value="3">Option 3</option>
+                  <?php
+                  foreach ($kel as $key => $value) {
+                    echo "<option value=\"" . $value->id_kelurahan . "\">" . $value->nama_kelurahan . "</option>";
+                  }
+                  ?>
                 </select>
                 <label>Kelurahan</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <select>
+                <select name="id_sektor">
                   <option value="" disabled selected>Pilih Sektor</option>
-                  <option value="1">Option 1</option>
-                  <option value="2">Option 2</option>
-                  <option value="3">Option 3</option>
+                  <?php
+                  foreach ($sektor as $key => $value) {
+                    echo "<option value=\"" . $value->id_sektor . "\">" . $value->nama_sektor . "</option>";
+                  }
+                  ?>
                 </select>
                 <label>Sektor</label>
               </div>
@@ -185,7 +198,7 @@
 
             <div class="row center-align">
               <div class="col s6">
-                <button class="btn blue lighten-1 btn-block">Update</button>
+                <button class="btn blue lighten-1 btn-block" type="submit">Tambah</button>
               </div>
               <div class="col s6">
                 <button class="btn red lighten-1 btn-block" type="reset">Reset</button>

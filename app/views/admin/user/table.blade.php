@@ -38,7 +38,7 @@
               echo "<td>" . $value->email . "</td>";
               echo "<td>" . $value->alamat . "</td>";
               echo "<td>" . $value->no_telp . "</td>";
-              echo "<td><img src=\"images/" . $value->foto_ktp . "\" alt=\"\"></td>";
+              echo "<td><img src=\"/images/" . $value->foto_ktp . "\" alt=\"\" width=\"200\" height=\"113\"></td>";
               echo "<td>" . $value->status_aktif . "</td>";
               ?>
                 <form method="POST" action="/dashboard/user/{{ $value->nik }}" accept-charset="UTF-8">

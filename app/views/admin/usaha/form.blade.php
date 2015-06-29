@@ -14,83 +14,87 @@
   <div class="container">
     <div class="row">
       <div class="card-panel card-table col offset-s2 s11">
-        <span class="card-title grey-text lighten-1" style="padding-left:0">Edit Usaha: <?php echo $usaha->nama_usaha; ?></span>
+        <span class="card-title grey-text lighten-1" style="padding-left:0">Tambah Data Usaha</span>
         <div class="row">
           <form class="col s12">
             <div class="row">
               <div class="input-field col s12">
-                <input id="nama_usaha" name="nama_usaha" required type="text" class="validate" value="<?php echo $usaha->nama_usaha; ?>">
+                <input id="nama_usaha" name="nama_usaha" required type="text" class="validate">
                 <label for="nama_usaha">Nama Usaha</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input id="produk_utama" name="produk_utama" required type="text" class="validate" value="<?php echo $usaha->produk_utama; ?>">
+                <input id="produk_utama" name="produk_utama" required type="text" class="validate">
                 <label for="produk_utama">Produk Utama</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input id="alamat_usaha" name="alamat_usaha" required type="text" class="validate" value="<?php echo $usaha->alamat_usaha; ?>">
+                <input id="alamat_usaha" name="alamat_usaha" required type="text" class="validate">
                 <label for="alamat_usaha">Alamat Usaha</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input id="deskripsi" name="deskripsi" required type="text" class="validate" value="<?php echo $usaha->deskripsi; ?>">
+                <input id="deskripsi" name="deskripsi" required type="text" class="validate">
                 <label for="deskripsi">Deskripsi</label>
               </div>
             </div>
             <div class="row">
 
-                <input id="tlp_usaha" type="text" nama="tlp_usaha" class="validate" value="<?php echo $usaha->telp_usaha; ?>">
+                <input id="tlp_usaha" type="text" nama="tlp_usaha" class="validate">
                 <label for="tlp_usaha">Telepon Usaha</label>
               </div>
             </div>
             <div class="row">
               <p>Skala Usaha</p>
               <p>
-                <input class="with-gap" name="skala" type="radio" id="skala1" <?php if($usaha->skala_usaha == 'Mikro') echo "checked"; ?> />
+                <input class="with-gap" name="skala" type="radio" id="skala1" value="Mikro"  />
                 <label for="skala1">Mikro</label>
               </p>
               <p>
-                <input class="with-gap" name="skala" type="radio" id="skala2" <?php if($usaha->skala_usaha == 'Kecil') echo "checked"; ?> />
+                <input class="with-gap" name="skala" type="radio" id="skala2" value="Kecil" />
                 <label for="skala2">Kecil</label>
               </p>
               <p>
-                <input class="with-gap" name="skala" type="radio" id="skala3" <?php if($usaha->skala_usaha == 'Menengah') echo "checked"; ?> />
+                <input class="with-gap" name="skala" type="radio" id="skala3" value="Menengah" />
                 <label for="skala3">Menengah</label>
               </p>
             </div>
             <div class="row">
               <p>Status Aktif</p>
               <p>
-                <input class="with-gap" name="status" type="radio" id="status1" <?php if($usaha->status_aktif == 'Y') echo "checked"; ?> />
+                <input class="with-gap" name="status" type="radio" id="status1" value="Y" />
                 <label for="status1">Aktif</label>
               </p>
               <p>
-                <input class="with-gap" name="status" type="radio" id="status2" <?php if($usaha->status_aktif == 'T') echo "checked"; ?> />
+                <input class="with-gap" name="status" type="radio" id="status2" value="T" />
                 <label for="status2">Tidak Aktif</label>
               </p>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <select>
+                <select name="id_kelurahan">
                   <option value="" disabled selected>Pilih Kelurahan</option>
-                  <option value="1">Option 1</option>
-                  <option value="2">Option 2</option>
-                  <option value="3">Option 3</option>
+                  <?php
+                  foreach ($kel as $key => $value) {
+                    echo "<option value=\"" . $value->id_kelurahan . "\">" . $value->nama_kelurahan . "</option>";
+                  }
+                  ?>
                 </select>
                 <label>Kelurahan</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <select>
+                <select name="id_sektor">
                   <option value="" disabled selected>Pilih Sektor</option>
-                  <option value="1">Option 1</option>
-                  <option value="2">Option 2</option>
-                  <option value="3">Option 3</option>
+                  <?php
+                  foreach ($sektor as $key => $value) {
+                    echo "<option value=\"" . $value->id_sektor . "\">" . $value->nama_sektor . "</option>";
+                  }
+                  ?>
                 </select>
                 <label>Sektor</label>
               </div>

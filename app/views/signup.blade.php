@@ -17,57 +17,57 @@
           <div style="padding:20px;">
 
             <div class="row">
-              <form class="col s12">
+              <form class="col s12" method="post" action="/signup" enctype="multipart/form-data">
                 <div class="row" style="margin-bottom:10px">
 
                   {{-- NIK --}}
                   <div class="input-field col s12">
-                    <input id="nik" type="text" class="validate">
+                    <input id="nik" type="text" name="nik" class="validate">
                     <label for="nik">NIK</label>
                   </div>
 
                   {{-- NAMA --}}
                   <div class="input-field col s12">
-                    <input id="nama" type="text" class="validate">
+                    <input id="nama" type="text" name="nama" class="validate">
                     <label for="nama">Nama</label>
                   </div>
 
                   {{-- EMAIl --}}
                   <div class="input-field col s12">
-                    <input id="email" type="email" class="validate">
+                    <input id="email" type="email" name="email" class="validate">
                     <label for="email">Email</label>
                   </div>
 
                   {{-- PASSWORD --}}
                   <div class="input-field col s12">
-                    <input id="password" type="password" class="validate">
+                    <input id="password" type="password" name="pass" class="validate">
                     <label for="password">Password</label>
                   </div>
 
                   {{-- ALAMAT --}}
                   <div class="input-field col s12">
-                    <input id="alamat" type="text" class="validate">
+                    <input id="alamat" type="text" name="alamat" class="validate">
                     <label for="alamat">Alamat</label>
                   </div>
 
                   {{-- TEMPAT LAHIR --}}
                   <div class="input-field col s12">
-                    <input id="tempat_lahir" type="text" class="validate">
+                    <input id="tempat_lahir" type="text" name="tempat_lahir" class="validate">
                     <label for="tempat_lahir">Tempat Lahir</label>
                   </div>
 
                   {{-- TANGGAL LAHIR --}}
                   <div class="input-field col s12">
-                    <input id="tgl_lahir" type="date" class="datepicker">
+                    <input id="tgl_lahir" onchange="tanggalLahir()" type="date" class="datepicker">
                     <label for="tgl_lahir">Tanggal Lahir</label>
                   </div>
 
-                  <input type="hidden" name="tanggallahir" id="tanggallahir">
+                  <input type="hidden" name="tgl_lahir" id="tanggallahir">
 
 
                   {{-- NO TELEPON --}}
                   <div class="input-field col s12">
-                    <input id="no_telp" type="text" class="validate">
+                    <input id="no_telp" type="number" name="no_telp" class="validate">
                     <label for="no_telp">No Telepon</label>
                   </div>
 
@@ -76,7 +76,7 @@
                       <input class="file-path validate" type="text"/>
                       <div class="btn">
                         <span><i class="mdi-file-file-upload left"></i> Foto KTP</span>
-                        <input type="file" />
+                        <input type="file" name="foto_ktp"/>
                       </div>
                     </div>
 

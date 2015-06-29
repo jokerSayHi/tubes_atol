@@ -24,8 +24,9 @@ class LoginUserController extends BaseController {
 			return Redirect::to('login');
 		} else {
 			$credentials = array(
-				'nik'	=>	Input::get('nik'),
-				'password'	=>	Input::get('password')
+				'nik'						=>	Input::get('nik'),
+				'password'			=>	Input::get('password'),
+				'status_aktif'	=>	'Y'
 			);
 
 			Config::set('auth.model', 'User');
