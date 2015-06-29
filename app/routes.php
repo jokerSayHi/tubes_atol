@@ -60,11 +60,6 @@ Route::group(array('prefix' => 'api'), function()
 	Route::get('usaha', array('uses' => 'ApiUsaha@index'));
 });
 
-Route::get('test', function()
-{
-	return View::make('test');
-});
-
 Route::get('signup', array('uses' => 'RegisterController@showRegister'));
 Route::post('signup', array('uses' => 'RegisterController@doRegister'));
 

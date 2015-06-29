@@ -3,11 +3,11 @@
 class LoginUserController extends BaseController {
 
 	public function showLogin()
-	{		
+	{
 		if (Auth::check()) {
 			return Redirect::intended('/');
 		} else {
-			return View::make('login'); 
+			return View::make('login');
 		}
 	}
 

@@ -55,7 +55,7 @@
     </div>
   </div>
 
-  <a class="btn-floating btn-table btn-large waves-effect waves-light blue"><i class="mdi-content-add"></i></a>
+  <a href="/dashboard/kelurahan/create" class="tooltipped btn-floating btn-table btn-large waves-effect waves-light blue" data-position="left" data-delay="50" data-tooltip="Tambah Data Kelurahan"><i class="mdi-content-add"></i></a>
 
   @include('includes.scripts')
 </body>
