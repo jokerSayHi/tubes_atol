@@ -29,13 +29,29 @@ jQuery(document).ready(function($) {
 
       for (var i = 0; i < data.length; i++) {
         var latLang = new google.maps.LatLng(Number(data[i].latitude), Number(data[i].longitude));
-        console.log(latLang);
+
+        var content = '<div><h5>'+ data[i].nama_usaha +'</h5><h6>'+ data[i].nama +' | '+ data[i].email +'</h6><p> Alamat : '+ data[i].alamat_usaha +' </p> <p> Produk :'+ data[i].produk_utama +' </p><p>Telepon : '+ data[i].telp_usaha +'</p><p> '+data[i].deskripsi+' </p></div>';
+
+        var infowindow = new google.maps.InfoWindow();
+
+        // INIT MARKER
         var marker = new google.maps.Marker({
           position: latLang,
           map: map,
-          title: 'Hello World!'
+          title: data[i].nama_usaha
         });
-        console.log(marker)
+
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+            return function() {
+                infowindow.setContent(content);
+                infowindow.open(map, marker);
+            }
+        })(marker, i));
+
+        // google.maps.event.addListener(marker, 'click', function() {
+        //   infowindow.open(map,marker);
+        // });
+
       }
     });
   }
