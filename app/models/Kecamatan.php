@@ -9,5 +9,10 @@ class Kecamatan extends Eloquent {
 	protected $fillable = array('nama_kecamatan', 'kode_pos');
 
 	protected $primaryKey = 'id_kecamatan';
+
+	public function kelurahan()
+	{
+		return $this->hasMany('Kelurahan');
+	}
 	
 }

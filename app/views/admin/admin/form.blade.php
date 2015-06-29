@@ -16,13 +16,7 @@
       <div class="card-panel card-table col offset-s2 s11">
         <span class="card-title grey-text lighten-1" style="padding-left:0">Tambah Admin</span>
         <div class="row">
-          <form class="col s12">
-            {{-- <div class="row">
-              <div class="input-field col s12">
-                <input id="nip" name="nip" required type="text" class="validate">
-                <label for="nip">NIP</label>
-              </div>
-            </div> --}}
+          <form class="col s12" method="post" action="/dashboard/admin">
             <div class="row">
               <div class="input-field col s12">
                 <input id="nama" name="nama" required type="text" class="validate">
@@ -31,13 +25,13 @@
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input id="username" name="username" required type="text" class="validate">
+                <input id="username" name="input_user" required type="text" class="validate">
                 <label for="username">Username</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input id="password" name="password" required type="password" class="validate">
+                <input id="password" name="input_pass" required type="password" class="validate">
                 <label for="password">Password</label>
               </div>
             </div>
@@ -49,7 +43,7 @@
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input id="telp" name="telp" required type="Number" class="validate">
+                <input id="telp" name="telp" required type="number" class="validate">
                 <label for="telp">No Telepon</label>
               </div>
             </div>

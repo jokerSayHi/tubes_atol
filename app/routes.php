@@ -36,10 +36,17 @@ Route::get('logout', array('uses' => 'LoginUserController@doLogout'));
 //Admin Routes
 Route::group(array('prefix' => 'dashboard', 'before' => 'authAdmin'), function()
 {
-  Route::resource('kelurahan', 'KelurahanController');
-  Route::resource('kecamatan', 'KecamatanController');
-  Route::resource('sektor', 'SektorController');
-  Route::resource('user', 'UserController');
-  Route::resource('admin', 'AdminController');
-  Route::resource('usaha', 'UsahaController');
+
+	Route::resource('kelurahan', 'KelurahanController');
+	Route::resource('kecamatan', 'KecamatanController');
+	Route::resource('sektor', 'SektorController');
+	Route::resource('user', 'UserController');
+	Route::resource('admin', 'AdminController');
+	Route::resource('usaha', 'UsahaController');
+});
+
+//API Routes
+Route::group(array('prefix' => 'api'), function()
+{
+	Route::get('usaha', array('uses' => 'ApiUsaha@index'));
 });
